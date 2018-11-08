@@ -7,7 +7,7 @@ function init(){
 
 	menuButton.addEventListener('click',()=>{
 		menu.classList.toggle('open') ? 
-			menuButton.style.setProperty('background', 'yellow') : 
+			menuButton.style.setProperty('background', '#fffeaa') : 
 			menuButton.style.setProperty('background', '');
 	});
 }

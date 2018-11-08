@@ -4,7 +4,6 @@
 
 html {
 	font-family: 'Bai Jamjuree', sans-serif;
-	font-size: 3em;
 	font-weight: 500;
 	background-color: #98dace;
 }
@@ -14,26 +13,63 @@ body {
 	min-height: 100vh;
 }
 
+.hidden {
+	display: none;
+}
+
 header {
-	width: 100%;
-	border: 3px solid red;
+	/*border: 3px solid red;*/
+	font-size: 3em;
+	margin: 0;
 }
 .head {
 	display: flex;
 	align-items: center;
+	width: 100%;
+	height: 80px;
 }
-.head > figure {
-	width: 75%;
-	height: ;
-	margin: 0;
-	padding: 3px 24px;
+.banner_space {
+	margin: 0 auto 0 24px;
+	display: flex;
+	align-items: center;
 }
-.head > #menu_button {
-	width:100%;
-	text-align: center;
-	line-height: .8em;
-	margin: 10px 8%;
+.button_space {
+	height: 80px;
+	margin: 0 0 0 auto;
+	padding: 12px 12px 12px ;
+}
+#menu_button {
+	line-height: 48px;
+	width: 48px;
+	padding: 0 6px;
 	border: 3px solid black;
+	text-align: center;
+}
+
+main {
+	min-height: calc(100vh - 80px);
+	margin: 0;
+}
+
+main h1 {
+	text-align: center;
+	background-color: #FFF;
+	margin: 0;
+}
+main article {
+	margin: 1em;
+	padding: .75em;
+	background-color: #FFF;
+	opacity: .75;
+}
+
+#copyright {
+	text-align: right;
+	margin-right: 1em;
+}
+
+footer {
+	font-size: 3em;
 }
 
 .menu {
@@ -44,7 +80,7 @@ header {
 	margin: 0;
 	border: 3px solid black;
 	border-bottom: 0px;
-	transition: all .3s;
+	transition: all .3s cubic-bezier(0.17, 1.19, 0.78, 1.1);
 }
 
 .menu.open {
@@ -61,4 +97,10 @@ header {
 .menu > ul > li {
 	border-bottom: 3px solid black;
 	background-color: #909090;
+	transition: all .3s;
+}
+
+.menu > ul > li:nth-child(1), .menu > ul > li:hover {
+	color: #fffeaa;
+	background-color: #000;	
 }
