@@ -57,13 +57,14 @@ header {
 	text-align: center;
 	margin: 0;
 	padding: 0;
+	background-color: #909090;
+	
 }
 
 .menu-psk > ul > li {
 	height: 50px;
 	font-size: 2em;
 	border-bottom: 3px solid black;
-	background-color: #909090;
 	transition: all .2s;
 }
 
@@ -91,4 +92,8 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+#copyright {
+	margin: 0 1em .5em 0;
 }
