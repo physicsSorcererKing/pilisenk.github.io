@@ -58,7 +58,6 @@ header {
 	margin: 0;
 	padding: 0;
 	background-color: #909090;
-	
 }
 
 .menu-psk > ul > li {
@@ -78,6 +77,8 @@ header {
 	cursor: pointer;
 	font-weight: 900;
 }
+
+
 
 .jumbotron.welcome {
 	max-height: 100vh;
