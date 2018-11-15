@@ -84,12 +84,12 @@ header {
 	max-height: 100vh;
 	min-height: 100vh;
 	border-radius: 0;
-	text-shadow: 1px 2px 2px black;
-	background-image: url('../img/jumbotron_01.jpg');
+	background-image: url('../img/jumbotron_01_s.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-attachment: fixed; 
+	background-attachment: fixed;
+	text-shadow: 1px 2px 2px black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -97,4 +97,11 @@ header {
 
 #copyright {
 	margin: 0 1em .5em 0;
+}
+
+@media (min-width: 768px) {
+	.jumbotron.welcome {
+		background-image: url('../img/jumbotron_01.jpg');
+	}
+
 }

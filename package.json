@@ -1,0 +1,14 @@
+{
+  "name": "pilisenk.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pilisenk/pilisenk.github.io",
+  "author": "Shuo Wang <ex76823@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+  	"start": "./node_modules/.bin/browser-sync start --server --no-notify --files='index.html, *.css, *.js, *.jpg, *.png'"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.3"
+  }
+}
