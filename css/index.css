@@ -1,7 +1,10 @@
 :root {
 	--psk-yellow: #fffeaa;
 	--psk-blue: #e3f2fd;
-	--psk-green: #98dacf;
+	--psk-green: #4fbfad;
+	--psk-lightgreen: #98dacf;
+	--psk-darkgreen: #2d7c6f;
+	--psk-navbar: 76px;
 }
 
 .bg-psk-yellow {
@@ -16,11 +19,8 @@
 	background-color: var(--psk-green);
 }
 
-.navbar-toggler-icon {
-	width: 2.25em;
-    height: 2.25em;
-    background-color: var(--light, white);
-    transition: all .2s;
+.op-8 {
+	opacity: .8;
 }
 
 body {
@@ -31,20 +31,85 @@ body {
 }
 
 header {
-	max-height: 94px;
-	min-height: 94px;
+	max-height: var(--psk-header);
+	min-height: var(--psk-header);
 	background-color: var(--psk-green);
 	position: fixed;
+}
+
+.navbar-brand {
+	height: 60px;
+}
+
+.navbar-toggler {
+	width: 2.25em;
+    height: 2.25em;
+    background-color: var(--light, white);
+    transition: all .2s;
+}
+/*
+.navbar-toggler:hover, .navbar-toggler:focus {
+	background-color: var(--dark);
+}
+*/
+.nav-item {
+	display: block;
+	width: 100%;
+	text-align: center;
+	border-bottom: 1.2px dotted var(--dark);
+	transition: all .2s;
+}
+
+.nav-item:hover {
+	background-color: var(--dark);
+}
+
+.navbar-light .navbar-nav .nav-link {
+	
+}
+
+.psk-nav {
+	position: fixed;
+	top: var(--psk-navbar);
+	left: 100%;
+	width: 100%;
+	background-color: var(--light);
+	transition: all .3s;
+}
+
+.psk-nav.psk-nav-show {
+	left: 0%;
+	transition: all .3s;
+}
+
+.collapse:not(.show) {
+	display: flex;
+}
+
+@media (min-width: 992px) {
+	.psk-nav {
+		position: static;
+		background: none;
+		border-bottom: 0;
+	}
+	.nav-item {
+		border-bottom: 0;
+	}
 }
 
 .menu-psk {
 	position: fixed;
 	left: -100%;
-	top: 0;
+	top: 76px;
 	width: 75%;
 	margin: 0;
 	border: 3px solid black;
 	border-bottom: 0px;
+	list-style-type: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	background-color: #909090;
 	transition: all .3s cubic-bezier(0.17, 1.19, 0.78, 1.1);
 }
 
@@ -52,15 +117,7 @@ header {
 	left: 0%;
 }
 
-.menu-psk > ul {
-	list-style-type: none;
-	text-align: center;
-	margin: 0;
-	padding: 0;
-	background-color: #909090;
-}
-
-.menu-psk > ul > li {
+.menu-psk > li {
 	height: 50px;
 	font-size: 2em;
 	border-bottom: 3px solid black;
@@ -80,16 +137,15 @@ header {
 
 
 
-.jumbotron.welcome {
+.jumbotron-fluid.welcome {
 	max-height: 100vh;
 	min-height: 100vh;
-	border-radius: 0;
 	background-image: url('../img/jumbotron_01_s.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	text-shadow: 1px 2px 2px black;
+	text-shadow: 1px 2px 2px white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -100,7 +156,7 @@ header {
 }
 
 @media (min-width: 768px) {
-	.jumbotron.welcome {
+	.jumbotron-fluid.welcome {
 		background-image: url('../img/jumbotron_01.jpg');
 	}
 

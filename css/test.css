@@ -1,0 +1,59 @@
+body {
+	background-color: black;
+	font-family: 'Bai Jamjuree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	/*font-weight: 500;
+	height: 100vh;
+	min-height: 100vh;*/
+}
+
+.close-alert {
+	margin-top: 1em;
+}
+
+#my-jumbotron {
+	border-radius: 0;
+}
+
+.btn-group.dropup {
+	position: absolute;
+	right: 5em;
+	z-index: 100;
+}
+
+.carousel-inner {
+	height: 50vh;
+}
+
+@media (min-width: 768px) {
+	.carousel-inner {
+		height: 100vh;
+	}
+}
+
+.carousel-inner img {
+	width: 100%;
+	object-fit: cover;
+	object-position: 50% 50%;
+}
+
+div.container-fluid.demo {
+	background-color: var(--primary);
+	color: var(--light);
+}
+
+.row {
+	height: 20vh;
+	max-height: 100vh;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+	content: '-';
+}
+
+div.container-fluid.demo > .row > div {
+	background-color: var(--dark);
+}
+div.container-fluid.demo > .row > div > span {
+	display: block;
+	background-color: darkblue;
+}

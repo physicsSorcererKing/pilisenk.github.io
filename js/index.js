@@ -1,31 +1,28 @@
 ;(global => {
 	//========================Get the elem========================
-	let navbarBtn = document.querySelector('.navbar-toggler-icon');
-	let menu = document.querySelector('.menu-psk');
-	let options = document.querySelector('.menu-psk li');
+	let navbarToggler = $('.navbar-toggler');
+	let navbarContent = $('#navbar-content');
 
 	//========================functions========================
 	//let the menu open
-	function navbarBtnToggle() {
-		menu.classList.toggle('open');
-		setNavbarBtnColor();
+	function toggleNavbarSlide() {
+		navbarContent.toggleClass('psk-nav-show');
 	}
 
-	function navbarBtnBlur() {
-		//if menu is not focus too, then... try to fix it
-		menu.classList.remove('open');
-		setNavbarBtnColor();
-	}
-
-	function setNavbarBtnColor() {
-		menu.classList.contains('open') ?
-			navbarBtn.style.setProperty('background-color', 'var(--dark, dark)') :
-			navbarBtn.style.setProperty('background-color', 'var(--light, white)');
+	function setNavbarTogglerColor() {
+		navbarContent.hasClass('psk-nav-show') ?
+			navbarToggler.css('background-color', 'var(--dark, dark)') :
+			navbarToggler.css('background-color', 'var(--light, white)');
 	}
 
 
 	//========================Add event listener========================
-	navbarBtn.addEventListener('click', navbarBtnToggle);
-	navbarBtn.addEventListener('blur', navbarBtnBlur);
+	//set interval time to forbid the status 'psk-nav-show' is not ready.
+	navbarToggler.click(setInterval.bind(this, setNavbarTogglerColor, 100));
+	navbarToggler.blur(setInterval.bind(this, setNavbarTogglerColor, 100));
+	navbarToggler.focus(setInterval.bind(this, setNavbarTogglerColor, 100));
+
+	navbarContent.on('show.bs.collapse', toggleNavbarSlide);
+	navbarContent.on('hide.bs.collapse', toggleNavbarSlide);
 
 })(window);
