@@ -1,9 +1,9 @@
 ;(global => {
-	//========================Get the elem========================
-	let navbarToggler = $('.navbar-toggler');
-	let navbarContent = $('#navbar-content');
+	//========================Get the elements========================
+	const navbarToggler = $('.navbar-toggler');
+	const navbarContent = $('#navbar-content');
 
-	//========================functions========================
+	//========================handler functions========================
 	//let the menu open
 	function toggleNavbarSlide() {
 		navbarContent.toggleClass('psk-nav-show');
@@ -27,13 +27,15 @@
 	}
 
 	//========================Add event listener========================
+	//better way to control .navbar-toggler's color: actually rely on #navbar-content is showing or not.
 	//set interval time to forbid the status 'psk-nav-show' is not ready.
 	navbarToggler.click(setInterval.bind(this, setNavbarTogglerColor, 100));
 	navbarToggler.focus(setInterval.bind(this, setNavbarTogglerColor, 100));
 	navbarToggler.blur(setInterval.bind(this, setNavbarTogglerColor, 100));
-
+	//Collapse #navbar-content when focusing on other things.
+	//bug: remove too fast to click it!
+	//solve:
 	navbarToggler.blur(removeNavbarSlide);
-
 
 	navbarContent.on('show.bs.collapse', toggleNavbarSlide);
 	navbarContent.on('hide.bs.collapse', toggleNavbarSlide);

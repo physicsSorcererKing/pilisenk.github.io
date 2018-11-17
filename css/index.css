@@ -5,9 +5,11 @@
 	--psk-lightgreen: #98dacf;
 	--psk-darkgreen: #2d7c6f;
 	--psk-darkpurple: hsla(217, 16%, 20%, 1);
+	--psk-dark: hsla(217, 16%, 12%, 1);
 	--psk-navbar: 76px;
 	--psk-bg-welcome: url('../img/bg/berlin-1266337_1920.jpg');
 }
+
 
 .bg-psk-yellow {
 	background-color: var(--psk-yellow);
@@ -41,6 +43,7 @@ header {
 
 .navbar-brand {
 	height: 60px;
+	margin-right: 32px;
 }
 
 .navbar-toggler {
@@ -59,15 +62,21 @@ header {
 	width: 100%;
 	text-align: center;
 	border-bottom: 1.2px dotted var(--light);
-	transition: all .2s;
 }
 
-.nav-item:hover {
-	background-color: var(--light);
+.nav-item:nth-last-child(1) {
+	border-bottom: 0;
 }
+
+#navbar-content .nav-link:hover {
+	background-color: var(--light);
+	color: var(--dark);
+	transition: all .3s;
+}
+
 
 .navbar-nav .nav-item .nav-link.active {
-	background-color: var(--dark);
+	background-color: var(--psk-dark);
 	color: var(--psk-yellow);
 }
 
@@ -79,6 +88,9 @@ header {
 	content: ' ◂';
 }
 
+/*
+When bootstrap's navbar-nav
+*/
 .psk-nav {
 	position: fixed;
 	top: var(--psk-navbar);
@@ -127,6 +139,17 @@ header {
 
 .welcome h2 {
 	font-weight: 400;
+}
+
+/*=================================================================
+	Solve the anchor link glitch:
+		offsetting an html anchor to adjust for fixed header
+=================================================================*/
+a.anchor {
+	display: block;
+	position: relative;
+	top: calc(-1*var(--psk-navbar));
+	visibility: hidden;
 }
 
 #copyright {
