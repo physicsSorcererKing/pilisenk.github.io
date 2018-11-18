@@ -7,7 +7,8 @@
 	--psk-darkpurple: hsla(217, 16%, 20%, 1);
 	--psk-dark: hsla(217, 16%, 12%, 1);
 	--psk-navbar: 76px;
-	--psk-bg-welcome: url('../img/bg/berlin-1266337_1920.jpg');
+	--psk-bg-top: url('../img/bg/berlin-1266337_1920.jpg');
+	--psk-bg-videos: url('../img/bg/tower-820001_1920.jpg');
 }
 
 
@@ -39,6 +40,36 @@ header {
 	min-height: var(--psk-header);
 	background-color: var(--psk-darkpurple);
 	position: fixed;
+	z-index: 1;
+}
+
+main {
+	color: var(--light);
+	text-shadow: 1px 2px 2px black;
+}
+
+h1 {
+	
+}
+
+h2 {
+	font-weight: 400;
+}
+
+h3 {
+	font-weight: 500;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
 }
 
 .navbar-brand {
@@ -121,24 +152,20 @@ When bootstrap's navbar-nav
 	}
 }
 
-
-.jumbotron-fluid.welcome {
-	max-height: 100vh;
-	min-height: 100vh;
-	background-image: var(--psk-bg-welcome);
+.jumbotron-fluid {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	color: var(--light);
-	text-shadow: 1px 2px 2px black;
+}
+
+.jumbotron-fluid.welcome {
+	max-height: 100vh;
+	min-height: 100vh;
+	background-image: var(--psk-bg-top);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
-
-.welcome h2 {
-	font-weight: 400;
 }
 
 /*=================================================================
@@ -152,13 +179,58 @@ a.anchor {
 	visibility: hidden;
 }
 
-#copyright {
-	margin: 0 1em .5em 0;
+@media (min-width: 768px) {
+	.jumbotron-fluid.welcome {
+		background-image: var(--psk-bg-top);
+	}
+
+}
+
+#videos + .jumbotron-fluid {
+	min-height: calc(100vh - var(--psk-navbar));
+	background-image: var(--psk-bg-videos);
+	display: flex;
+	justify-content: center;
+}
+
+#videos + .jumbotron-fluid > div > div {
+	padding: 2em;
+	min-height: calc(100vh - var(--psk-navbar));
+}
+
+
+#videos + .jumbotron-fluid p {
+	font-weight: 300;
+}
+
+iframe {
+	width: 100%;
+	padding: 0 2em;
 }
 
 @media (min-width: 768px) {
-	.jumbotron-fluid.welcome {
-		background-image: var(--psk-bg-welcome);
+	#videos + .jumbotron-fluid {
+		
 	}
 
+	#videos + .jumbotron-fluid > div > div {
+		padding: 4em;
+	}
+
+
+	#videos + .jumbotron-fluid h3 {
+		font-size: 3.5em;
+	}
+
+	#videos + .jumbotron-fluid p {
+		font-size: 2em;
+	}
+
+	iframe {
+		padding: 0;
+	}
+}
+
+#copyright {
+	margin: 0 1em .5em 0;
 }

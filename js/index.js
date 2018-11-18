@@ -1,10 +1,9 @@
 ;(global => {
-	//========================Get the elements========================
+	//=======================Select the elements=======================
 	const navbarToggler = $('.navbar-toggler');
 	const navbarContent = $('#navbar-content');
 
 	//========================handler functions========================
-	//let the menu open
 	function toggleNavbarSlide() {
 		navbarContent.toggleClass('psk-nav-show');
 	}
@@ -32,11 +31,12 @@
 	navbarToggler.click(setInterval.bind(this, setNavbarTogglerColor, 100));
 	navbarToggler.focus(setInterval.bind(this, setNavbarTogglerColor, 100));
 	navbarToggler.blur(setInterval.bind(this, setNavbarTogglerColor, 100));
-	//Collapse #navbar-content when focusing on other things.
-	//bug: remove too fast to click it!
-	//solve:
+	
+	//Collapse #navbar-content when focusing on the other things.
+	//glitch: #navbar-content collapses too fast to click it when platform is a laptop/desktop and width < 992px
 	navbarToggler.blur(removeNavbarSlide);
 
+	//Add custom slide effect when #navbar-content is showing or hidding.
 	navbarContent.on('show.bs.collapse', toggleNavbarSlide);
 	navbarContent.on('hide.bs.collapse', toggleNavbarSlide);
 
