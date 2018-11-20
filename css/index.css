@@ -8,24 +8,12 @@
 	--psk-dark: hsla(217, 16%, 12%, 1);
 	--psk-navbar: 76px;
 	--psk-bg-top: url('../img/bg/berlin-1266337_1920.jpg');
-	--psk-bg-videos: url('../img/bg/tower-820001_1920.jpg');
-}
-
-
-.bg-psk-yellow {
-	background-color: var(--psk-yellow);
-}
-
-.bg-psk-blue {
-	background-color: var(--psk-blue);
-}
-
-.bg-psk-green {
-	background-color: var(--psk-green);
-}
-
-.op-8 {
-	opacity: .8;
+	--psk-bg-projects: url('../img/bg/columns-801715_1920.jpg');
+	--psk-bg-theater: url('../img/bg/space-2466331.jpg');
+	--psk-bg-blog: url('../img/bg/saturn-1078095_1920.jpg');
+	--psk-bg-gallery: url('../img/bg/tunnel-2033983_1920.jpg');
+	--psk-bg-about: url('../img/bg/cave-1937495_1920.jpg');
+	--psk-bg-half-head: url('../img/bg/left_head_to_the_right.png');
 }
 
 body {
@@ -40,38 +28,117 @@ header {
 	min-height: var(--psk-header);
 	background-color: var(--psk-darkpurple);
 	position: fixed;
-	z-index: 1;
+	z-index: 16;
 }
 
 main {
+	
+}
+
+footer {
+	position: relative;
+	background-color: var(--psk-darkpurple);
 	color: var(--light);
-	text-shadow: 1px 2px 2px black;
 }
 
 h1 {
 	
 }
 
-h2 {
+h2, h3 {
+	font-size: 1.6rem;
 	font-weight: 400;
 }
 
-h3 {
-	font-weight: 500;
+h4, h5, h6 {
+	font-size: 1.4rem;
+	font-weight: 400;
 }
 
-h4 {
-
+p {
+	font-size: 1.25rem;
+	font-weight: 300;
 }
 
-h5 {
+@media (min-width: 992px) {
+	h2, h3 {
+		font-size: 2em;
+	}
 
+	p {
+		font-size: 1.6rem;
+		font-weight: 300;
+	}
 }
 
-h6 {
-
+/*=================================================================
+	Solve the anchor link glitch:
+		offsetting an html anchor to adjust for fixed header
+=================================================================*/
+a.anchor {
+	display: block;
+	position: relative;
+	top: calc(-1*var(--psk-navbar));
+	visibility: hidden;
 }
 
+.jumbotron-fluid {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.jumbotron-fluid:nth-of-type(odd) {
+	color: var(--light);
+	text-shadow: 1px 2px 2px var(--dark);
+}
+
+.jumbotron-fluid:nth-of-type(even) {
+	color: black;
+	text-shadow: 0px 0px 5px white;
+}
+
+.jumbotron-fluid:nth-of-type(n+2) {
+	min-height: calc(100vh - var(--psk-navbar));
+}
+
+.jumbotron-fluid.psk-flex {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 1.5em;
+}
+
+@media (min-width: 992px) {
+	
+}
+
+.subtitle {
+	width: 100%;
+	min-height: 4.5rem;
+	max-height: 4.5rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subtitle h3 {
+	padding-top: .5rem;
+}
+
+.row {
+	margin: 0;
+	padding: 0 15px;
+	width: 100%;
+}
+
+.row > div {
+	padding-bottom: 1.5em;
+}
+
+
+/*=============================header=============================*/
 .navbar-brand {
 	height: 60px;
 	margin-right: 32px;
@@ -83,11 +150,7 @@ h6 {
     background-color: var(--gray-dark, dark);
     transition: all .2s;
 }
-/*
-.navbar-toggler:hover, .navbar-toggler:focus {
-	background-color: var(--dark);
-}
-*/
+
 .nav-item {
 	display: block;
 	width: 100%;
@@ -119,9 +182,7 @@ h6 {
 	content: ' ◂';
 }
 
-/*
-When bootstrap's navbar-nav
-*/
+/*custom navbar-nav*/
 .psk-nav {
 	position: fixed;
 	top: var(--psk-navbar);
@@ -136,7 +197,10 @@ When bootstrap's navbar-nav
 	transition: all .3s;
 }
 
-/*custom setting for my slide-in effect*/
+/*custom setting for my slide-in effect:
+	Bootstrap's element collapse, display attr will be 'none',
+	It will make my slide-in effect disabled. Keep it flex will fix that glitch.
+*/
 .collapse:not(.show) {
 	display: flex;
 }
@@ -152,13 +216,7 @@ When bootstrap's navbar-nav
 	}
 }
 
-.jumbotron-fluid {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-}
-
+/*==============================#top==============================*/
 .jumbotron-fluid.welcome {
 	max-height: 100vh;
 	min-height: 100vh;
@@ -168,17 +226,6 @@ When bootstrap's navbar-nav
 	justify-content: center;
 }
 
-/*=================================================================
-	Solve the anchor link glitch:
-		offsetting an html anchor to adjust for fixed header
-=================================================================*/
-a.anchor {
-	display: block;
-	position: relative;
-	top: calc(-1*var(--psk-navbar));
-	visibility: hidden;
-}
-
 @media (min-width: 768px) {
 	.jumbotron-fluid.welcome {
 		background-image: var(--psk-bg-top);
@@ -186,51 +233,136 @@ a.anchor {
 
 }
 
-#videos + .jumbotron-fluid {
-	min-height: calc(100vh - var(--psk-navbar));
-	background-image: var(--psk-bg-videos);
+#projects + .jumbotron-fluid {
+	background-image: var(--psk-bg-projects);
+}
+/*=============================#theater=============================*/
+#theater + .jumbotron-fluid {
+	background-image: var(--psk-bg-theater);
 	display: flex;
 	justify-content: center;
 }
 
-#videos + .jumbotron-fluid > div > div {
-	padding: 2em;
-	min-height: calc(100vh - var(--psk-navbar));
-}
 
 
-#videos + .jumbotron-fluid p {
-	font-weight: 300;
+#youtube-preview {
+	width: 100%;
+
 }
 
 iframe {
 	width: 100%;
-	padding: 0 2em;
+	margin-bottom: 1em;
 }
 
 @media (min-width: 768px) {
-	#videos + .jumbotron-fluid {
+	#theater + .jumbotron-fluid {
 		
 	}
 
-	#videos + .jumbotron-fluid > div > div {
-		padding: 4em;
+	#theater + .jumbotron-fluid > div > div {
+		padding: 4em 2em 2em 2em;
+
 	}
-
-
-	#videos + .jumbotron-fluid h3 {
-		font-size: 3.5em;
-	}
-
-	#videos + .jumbotron-fluid p {
-		font-size: 2em;
+	
+	#youtube-preview > div {
+		width: 50%;
+		margin-bottom: 2em;
+		padding: 1em 2em;
 	}
 
 	iframe {
-		padding: 0;
 	}
 }
 
+@media (min-width: 992px) {
+	#theater + .jumbotron-fluid {
+
+	}
+
+	iframe {
+		/*height: calc((100% - var(--psk-navbar)) / 2);*/
+		
+	}
+
+}
+
+/*=============================#gallery=============================*/
+#gallery + .jumbotron-fluid {
+	background-image: var(--psk-bg-gallery);
+}
+
+#gallery + .jumbotron-fluid .carousel {
+	width: 100%;
+}
+
+/*.img-16-9 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-height: 192px;
+}*/
+
+#gallery + .jumbotron-fluid img {
+	display: block;
+	object-fit: contain;
+	width: 100%;
+	height: 163px;
+}
+
+/*=============================#blog=============================*/
+#blog + .jumbotron-fluid {
+	background-image: var(--psk-bg-blog);
+}
+
+.psk-baha {
+	background-image: url('../img/icon/baha_pilisenk.jpg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 100%;
+	padding-top: 17.1875%;
+}
+
+/*=============================#about=============================*/
+#about + .jumbotron-fluid {
+	background-image: var(--psk-bg-about);
+	position: relative;
+}
+
+.psk-face {
+	background-image: url('../img/bg/left_eye_to_the_right.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 55%;
+	height: calc(100vh - 3.32* var(--psk-navbar));
+	position: absolute;
+	top: calc(1.66 * var(--psk-navbar));
+	right: 0;
+}
+
+.github-icon {
+	background-image: url('../img/icon/github-154769_520.png');
+	background-size: 115px 115px;
+	width: 115px;
+	height: 115px;
+}
+
+.email-icon {
+	background-image: url('../img/icon/icons-842848_520.png');
+	background-size: 115px 115px;
+	width: 115px;
+	height: 115px;
+}
+
+
+/*==============================footer==============================*/
+
+
 #copyright {
-	margin: 0 1em .5em 0;
+	position: absolute;
+	top: -3rem;
+	right: 0;
+	padding: .5rem 1rem .5rem 0;
 }
