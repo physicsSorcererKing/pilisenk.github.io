@@ -14,6 +14,8 @@
 	--psk-bg-gallery: url('../img/bg/gallery.jpg');
 	--psk-bg-about: url('../img/bg/about.jpg');
 	--psk-icon-eye: url('../img/icon/left_eye_to_the_right.png');
+	--psk-icon-github: url('../img/icon/gh_520.png');
+	--psk-icon-email: url('../img/icon/em_520.png');
 }
 
 @media (min-width: 768px){
@@ -498,17 +500,17 @@ iframe {
 
 @media (min-width: 1200px) {
 	.icon-square {
-		background-size: 66%;
-		padding-top: 66%;
+		background-size: 62%;
+		padding-top: 62%;
 	}
 }
 
-.icon-github {
-	background-image: url('../img/icon/github-154769_520.png');
+.psk-icon-github {
+	background-image: var(--psk-icon-github);
 }
 
-.icon-email {
-	background-image: url('../img/icon/icons-842848_520.png');
+.psk-icon-email {
+	background-image: var(--psk-icon-email);
 }
 
 
@@ -522,4 +524,3 @@ iframe {
 	padding: .5rem 1rem .5rem 0;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
