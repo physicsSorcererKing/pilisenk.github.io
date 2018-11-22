@@ -7,13 +7,31 @@
 	--psk-darkpurple: hsla(217, 16%, 20%, 1);
 	--psk-dark: hsla(217, 16%, 12%, 1);
 	--psk-navbar: 76px;
-	--psk-bg-top: url('../img/bg/berlin-1266337_1920.jpg');
-	--psk-bg-projects: url('../img/bg/columns-801715_1920.jpg');
-	--psk-bg-theater: url('../img/bg/space-2466331.jpg');
-	--psk-bg-blog: url('../img/bg/saturn-1078095_1920.jpg');
-	--psk-bg-gallery: url('../img/bg/tunnel-2033983_1920.jpg');
-	--psk-bg-about: url('../img/bg/cave-1937495_1920.jpg');
-	--psk-bg-half-head: url('../img/bg/left_head_to_the_right.png');
+	--psk-bg-top: url('../img/bg/top.jpg');
+	--psk-bg-projects: url('../img/bg/projects.jpg');
+	--psk-bg-theater: url('../img/bg/theater.jpg');
+	--psk-bg-blog: url('../img/bg/blog.jpg');
+	--psk-bg-gallery: url('../img/bg/gallery.jpg');
+	--psk-bg-about: url('../img/bg/about.jpg');
+	--psk-icon-eye: url('../img/icon/left_eye_to_the_right.png');
+}
+
+@media (min-width: 768px){
+	:root {
+		--psk-icon-eye: url('../img/icon/left_head_to_the_right.png');
+	}
+}
+
+@media (min-width: 1200px) {
+	:root {
+		--psk-bg-top: url('../img/bg/top_1920.jpg');
+		--psk-bg-projects: url('../img/bg/projects_1920.jpg');
+		--psk-bg-theater: url('../img/bg/theater_1920.jpg');
+		--psk-bg-blog: url('../img/bg/blog_1920.jpg');
+		--psk-bg-gallery: url('../img/bg/gallery_1920.jpg');
+		--psk-bg-about: url('../img/bg/about_1920.jpg');
+		--psk-bg-half-head: url('../img/icon/left_head_to_the_right.png');
+	}
 }
 
 body {
@@ -62,13 +80,14 @@ p {
 
 @media (min-width: 992px) {
 	h2, h3 {
-		font-size: 2em;
+		font-size: 2rem;
 	}
 
 	p {
 		font-size: 1.6rem;
 		font-weight: 300;
 	}
+
 }
 
 /*=================================================================
@@ -106,7 +125,7 @@ a.anchor {
 .jumbotron-fluid.psk-flex {
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 1.5em;
+	padding-bottom: 1.5rem;
 }
 
 @media (min-width: 992px) {
@@ -134,7 +153,7 @@ a.anchor {
 }
 
 .row > div {
-	padding-bottom: 1.5em;
+	padding-bottom: 1.5rem;
 }
 
 
@@ -145,14 +164,15 @@ a.anchor {
 }
 
 .navbar-toggler {
-	width: 2.25em;
-    height: 2.25em;
+	width: 2.25rem;
+    height: 2.25rem;
     background-color: var(--gray-dark, dark);
     transition: all .2s;
 }
 
 .nav-item {
 	display: block;
+
 	width: 100%;
 	text-align: center;
 	border-bottom: 1.2px dotted var(--light);
@@ -168,18 +188,27 @@ a.anchor {
 	transition: all .3s;
 }
 
-
 .navbar-nav .nav-item .nav-link.active {
 	background-color: var(--psk-dark);
 	color: var(--psk-yellow);
 }
 
-.navbar-nav .nav-item .nav-link.active:before {
-	content: '▸ ' ;
+.nav-link span {
+	position: relative;
+	text-overflow: clip;
 }
 
-.navbar-nav .nav-item .nav-link.active:after {
-	content: ' ◂';
+.navbar-nav .nav-item .nav-link.active span:before {
+	position: absolute;
+	left: -1rem;
+	content: '▸' ;
+}
+
+.navbar-nav .nav-item .nav-link.active span:after {
+	position: absolute;
+	right: -1rem;
+	content: '◂';
+
 }
 
 /*custom navbar-nav*/
@@ -236,23 +265,63 @@ a.anchor {
 #projects + .jumbotron-fluid {
 	background-image: var(--psk-bg-projects);
 }
+
+/*=============================#projects=============================*/
+.psk-project-item {
+	border: 2px solid var(--dark);
+}
+
+.psk-project-item p {
+	color: var(--indigo);
+}
+
+.psk-project-item code {
+	color: black;
+}
+
 /*=============================#theater=============================*/
 #theater + .jumbotron-fluid {
 	background-image: var(--psk-bg-theater);
-	display: flex;
-	justify-content: center;
+	/*display: flex;
+	justify-content: center;*/
 }
 
+.psk-youtube-subscribe {
+	background-color: red;
+	color: white;
+	position: relative;
+}
 
+.psk-youtube-subscribe:before {
+	color: white;
+	content: '▸';
+	text-shadow: .33px .66px .66px var(--dark);
+	position: absolute;
+	left: 1rem;
+	transform: scale(3);
+}
+
+.psk-youtube-subscribe:hover {
+	transform: scale(1.01);
+	background-color: red;
+	opacity: .9;
+}
 
 #youtube-preview {
 	width: 100%;
+}
 
+.psk-youtube-item {
+	width: 100%;
+	margin-bottom: 1rem;
 }
 
 iframe {
 	width: 100%;
-	margin-bottom: 1em;
+}
+
+#psk-youtube-top-10-plays iframe {
+
 }
 
 @media (min-width: 768px) {
@@ -261,18 +330,22 @@ iframe {
 	}
 
 	#theater + .jumbotron-fluid > div > div {
-		padding: 4em 2em 2em 2em;
+		padding: 4rem 2rem 2rem 2rem;
 
 	}
 	
 	#youtube-preview > div {
 		width: 50%;
-		margin-bottom: 2em;
-		padding: 1em 2em;
+		margin-bottom: 2rem;
+		padding: 1rem 2rem;
 	}
 
 	iframe {
 	}
+
+	object {
+	}
+
 }
 
 @media (min-width: 992px) {
@@ -330,8 +403,45 @@ iframe {
 	position: relative;
 }
 
+.psk-intro-text {
+	margin-bottom: 0;
+}
+
+@media (min-width: 375px) {
+	.psk-intro-text {
+		margin-bottom: 1.2rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.psk-intro-text {
+		margin-bottom: 0;
+	}
+}
+
+.psk-about-icons-flex {
+}
+
+@media (min-width: 768px){
+	.psk-about-icons-flex {
+		flex-direction: column;
+	}
+}
+
+@media (min-width: 1024px) and (max-height: 992px)  {
+	.psk-about-icons-flex {
+		flex-direction: row;
+	}
+}
+
+@media (min-width: 1200px) {
+	.psk-about-icons-flex {
+		flex-direction: row;
+	}
+}
+
 .psk-face {
-	background-image: url('../img/bg/left_eye_to_the_right.png');
+	background-image: var(--psk-icon-eye);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -342,18 +452,63 @@ iframe {
 	right: 0;
 }
 
-.github-icon {
-	background-image: url('../img/icon/github-154769_520.png');
-	background-size: 115px 115px;
-	width: 115px;
-	height: 115px;
+@media (min-width: 768px) {
+	.psk-face {
+		background-position: right;
+		top: calc(1.3 * var(--psk-navbar));
+	}
 }
 
-.email-icon {
+@media (min-width: 1200px) {
+	.psk-face {
+		height: calc(100vh - 3* var(--psk-navbar));
+		top: calc(1.15 * var(--psk-navbar));
+	}
+}
+
+@media (min-width: 1440px) {
+	.psk-face {
+		height: calc(100vh - 2.5* var(--psk-navbar));
+		top: calc(1 * var(--psk-navbar));
+	}
+}
+
+
+.icon-square {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	padding-top: 100%;
+}
+
+@media (min-width: 768px) {
+	.icon-square {
+		background-size: 80%;
+		padding-top: 80%;
+	}
+}
+
+@media (min-width: 992px) {
+	.icon-square {
+		background-size: 75%;
+		padding-top: 75%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.icon-square {
+		background-size: 66%;
+		padding-top: 66%;
+	}
+}
+
+.icon-github {
+	background-image: url('../img/icon/github-154769_520.png');
+}
+
+.icon-email {
 	background-image: url('../img/icon/icons-842848_520.png');
-	background-size: 115px 115px;
-	width: 115px;
-	height: 115px;
 }
 
 
@@ -362,7 +517,9 @@ iframe {
 
 #copyright {
 	position: absolute;
-	top: -3rem;
+	top: -2.66rem;
 	right: 0;
 	padding: .5rem 1rem .5rem 0;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
