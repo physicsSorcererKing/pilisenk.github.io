@@ -271,10 +271,11 @@ a.anchor {
 /*=============================#projects=============================*/
 .psk-project-item {
 	border: 2px solid var(--dark);
+	padding: 1em;
 }
 
 .psk-project-item p {
-	color: var(--indigo);
+	margin: .5rem;
 }
 
 .psk-project-item code {
