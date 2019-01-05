@@ -3,6 +3,8 @@
 	const navbarToggler = $('.navbar-toggler');
 	const navbarContent = $('#navbar-content');
 
+	const carouselImages = $('.carousel-item img');
+
 	//========================handler functions========================
 	function toggleNavbarSlide() {
 		navbarContent.toggleClass('psk-nav-show');
@@ -25,6 +27,19 @@
 			navbarToggler.css('background-image', `url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")`);
 		}
 	}
+
+	// let all <img> in Carousel have an anchor outside to link
+	(function setCarouselImageLinks() {
+		for (let i=0; i<carouselImages.length; ++i){
+			var innerImage = carouselImages[i];
+			var path = innerImage.src;
+			var wrapper = document.createElement('a');
+			innerImage.parentNode.insertBefore(wrapper, innerImage);
+			wrapper.appendChild(innerImage);
+			wrapper.href = path;
+			wrapper.target = '_blank';
+		}
+	})();
 
 	//========================Add event listener========================
 	//better way to control .navbar-toggler's color: actually rely on #navbar-content is showing or not.
